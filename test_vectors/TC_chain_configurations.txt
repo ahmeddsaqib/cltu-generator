@@ -1,0 +1,246 @@
+/*CONFIGURABLE PARAMETERS*/
+
+            /*For Packetization Layer*/
+
+            byte[] PUS_pkt = new byte[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            byte version_no= 0b00_000_000;
+
+            byte data_header_flg=1; //Set value 1 if data header is present in PUS otherwise set value 0
+
+            int packet_sequence_control=0xFFFF; //INCLUDES TWO BITS OF SEQUENCE FLAGS+ 14 BITS of Packet sequence count
+            UInt16 App_ID=234; //Application Process ID
+
+            byte error_control_flg=1;//Set value to 1 if you want to incorporate CRC-16 for TC_Packet otherwise set to 0
+
+
+            /*For Segmentation Layer*/
+
+            byte MAP_ID = 0b00_1111_11;// Set according to mission. should not be greater than 6 bits.
+
+
+            /*For Transfer Layer*/
+
+
+            byte bypass_contrlcom_flag=2; // for AD frames set value 0, BD frames set value 2, for BC frames set value 3; value 1 is illegal combination
+
+            int spacecraft_ID= 0b10_0001_0011; // 10- bit Space-Craft Identifier for PAKTES 1-B
+
+            int virtual_channel_ID=18;//0;
+
+            Note: Filler Bits are added and then whole frame is randomized.
+
+
+
+////////////////////////PUS pkt 1/////////////////////////////////////
+byte[] PUS_pkt = new byte[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+  TC_Packet [0] : 24
+
+  TC_Packet [1] : 234
+
+  TC_Packet [2] : 255
+
+  TC_Packet [3] : 255
+
+  TC_Packet [4] : 0
+
+  TC_Packet [5] : 9
+
+  TC_Packet [6] : 1
+
+  TC_Packet [7] : 2
+
+  TC_Packet [8] : 3
+
+  TC_Packet [9] : 4
+
+  TC_Packet [10] : 5
+
+  TC_Packet [11] : 6
+
+  TC_Packet [12] : 7
+
+  TC_Packet [13] : 8
+
+  TC_Packet [14] : 9
+
+  TC_Packet [15] : 10
+
+  TC_Packet [16] : 207
+
+  TC_Packet [17] : 240
+
+  TC_Segment [0] : 255
+
+  TC_Segment [1] : 24
+
+  TC_Segment [2] : 234
+
+  TC_Segment [3] : 255
+
+  TC_Segment [4] : 255
+
+  TC_Segment [5] : 0
+
+  TC_Segment [6] : 9
+
+  TC_Segment [7] : 1
+
+  TC_Segment [8] : 2
+
+  TC_Segment [9] : 3
+
+  TC_Segment [10] : 4
+
+  TC_Segment [11] : 5
+
+  TC_Segment [12] : 6
+
+  TC_Segment [13] : 7
+
+  TC_Segment [14] : 8
+
+  TC_Segment [15] : 9
+
+  TC_Segment [16] : 10
+
+  TC_Segment [17] : 207
+
+  TC_Segment [18] : 240
+
+  Transfer_Frame [0] <= 8'd34;
+
+  Transfer_Frame [1] <= 8'd19;
+
+  Transfer_Frame [2] <= 8'd72;
+
+  Transfer_Frame [3] <= 8'd25;
+
+  Transfer_Frame [4] <= 8'd0;
+
+  Transfer_Frame [5] <= 8'd255;
+
+  Transfer_Frame [6] <= 8'd24;
+
+  Transfer_Frame [7] <= 8'd234;
+
+  Transfer_Frame [8] <= 8'd255;
+
+  Transfer_Frame [9] <= 8'd255;
+
+  Transfer_Frame [10] <= 8'd0;
+
+  Transfer_Frame [11] <= 8'd9;
+
+  Transfer_Frame [12] <= 8'd1;
+
+  Transfer_Frame [13] <= 8'd2;
+
+  Transfer_Frame [14] <= 8'd3;
+
+  Transfer_Frame [15] <= 8'd4;
+
+  Transfer_Frame [16] <= 8'd5;
+
+  Transfer_Frame [17] <= 8'd6;
+
+  Transfer_Frame [18] <= 8'd7;
+
+  Transfer_Frame [19] <= 8'd8;
+
+  Transfer_Frame [20] <= 8'd9;
+
+  Transfer_Frame [21] <= 8'd10;
+
+  Transfer_Frame [22] <= 8'd207;
+
+  Transfer_Frame [23] <= 8'd240;
+
+  Transfer_Frame [24] <= 8'd109;
+
+  Transfer_Frame [25] <= 8'd37;
+
+  CLTU [0] : 235
+
+  CLTU [1] : 144
+
+  CLTU [2] : 221
+
+  CLTU [3] : 42
+
+  CLTU [4] : 214
+
+  CLTU [5] : 67
+
+  CLTU [6] : 104
+
+  CLTU [7] : 22
+
+  CLTU [8] : 30
+
+  CLTU [9] : 102
+
+  CLTU [10] : 31
+
+  CLTU [11] : 147
+
+  CLTU [12] : 118
+
+  CLTU [13] : 47
+
+  CLTU [14] : 168
+
+  CLTU [15] : 48
+
+  CLTU [16] : 92
+
+  CLTU [17] : 164
+
+  CLTU [18] : 11
+
+  CLTU [19] : 196
+
+  CLTU [20] : 87
+
+  CLTU [21] : 174
+
+  CLTU [22] : 188
+
+  CLTU [23] : 166
+
+  CLTU [24] : 71
+
+  CLTU [25] : 90
+
+  CLTU [26] : 200
+
+  CLTU [27] : 8
+
+  CLTU [28] : 29
+
+  CLTU [29] : 11
+
+  CLTU [30] : 249
+
+  CLTU [31] : 109
+
+  CLTU [32] : 129
+
+  CLTU [33] : 84
+
+  CLTU [34] : 197
+
+  CLTU [35] : 197
+
+  CLTU [36] : 197
+
+  CLTU [37] : 197
+
+  CLTU [38] : 197
+
+  CLTU [39] : 197
+
+  CLTU [40] : 197
+
+  CLTU [41] : 121
